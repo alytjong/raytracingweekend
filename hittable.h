@@ -3,7 +3,7 @@
 
 #include "rtweekend.h"
 
-class material;
+class material; // does this call material.h or is this just a placeholder?
 
 struct hit_record {
   point3 p;
@@ -20,6 +20,11 @@ struct hit_record {
 
 class hittable {
   public:
+    // Virtual function is a member function which is declared within a
+    // base class and is re-defined(Overriden) by a derived class.
+    // When you refer to a derived class object using a pointer or a reference
+    // to the base class, you can call a virtual function for that object and
+    // execute the derived class’s version of the function.
     virtual bool hit(const ray& r, double t_min, double t_max, hit_record& rec) const = 0;
 };
 

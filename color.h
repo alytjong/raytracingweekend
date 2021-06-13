@@ -7,6 +7,8 @@
 
 using namespace std;
 
+// Function to write pixel RGB values onto a file
+
 void write_color(ofstream* File, color pixel_color, int samples_per_pixel) {
     auto r = pixel_color.x();
     auto g = pixel_color.y();

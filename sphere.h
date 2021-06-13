@@ -8,8 +8,13 @@ class sphere : public hittable {
   public:
     sphere() {}
     sphere(point3 cen, double r, shared_ptr<material> m)
-      : center(cen), radius(r), mat_ptr(m) {};
+      : center(cen), radius(r), mat_ptr(m) {}
 
+    // Virtual function is a member function which is declared within a
+    // base class and is re-defined(Overriden) by a derived class.
+    // When you refer to a derived class object using a pointer or a reference
+    // to the base class, you can call a virtual function for that object and
+    // execute the derived class’s version of the function.
     virtual bool hit(
       const ray& r, double t_min, double t_max, hit_record& rec) const override;
 

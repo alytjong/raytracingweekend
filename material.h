@@ -7,6 +7,13 @@ struct hit_record;
 
 class material {
   public:
+    // Whether a material scatter light if you shoot a ray, default is false
+
+    // Virtual function is a member function which is declared within a
+    // base class and is re-defined(Overriden) by a derived class.
+    // When you refer to a derived class object using a pointer or a reference
+    // to the base class, you can call a virtual function for that object and
+    // execute the derived class’s version of the function.
     virtual bool scatter (
         const ray& r_in, const hit_record& rec, color& attenuation, ray& scattered
     ) const = 0;
@@ -81,6 +88,7 @@ class dielectric : public material {
     double ir; // index of refraction
 
   private:
+    // space for this variable is defined for the lifetime of the program
     static double reflectance(double cosine, double ref_idx) {
       // Use Schlick's approximation for reflectance
       auto r0 = (1 - ref_idx) / (1 + ref_idx);
